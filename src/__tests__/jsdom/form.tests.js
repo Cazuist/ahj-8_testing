@@ -1,5 +1,5 @@
-import cardsInfo from '../../cardsInfo';
-import ValidatorWidget from '../../ValidatorWidget';
+import cardsInfo from '../../js/cardsInfo';
+import ValidatorWidget from '../../js/ValidatorWidget';
 
 describe('Card valid form', () => {  
     const widget = new ValidatorWidget(document.body, cardsInfo);

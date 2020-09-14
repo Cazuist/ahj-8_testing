@@ -1,5 +1,5 @@
-import Validator from '../../Validator';
-import cardsInfo from '../../cardsInfo';
+import Validator from '../../js/Validator';
+import cardsInfo from '../../js/cardsInfo';
 
 describe('Testing of class Validator', () => {
     test.each([
@@ -38,13 +38,13 @@ describe('Testing of class Validator', () => {
     ['mir', '20', 'mir'],
     ['mir', '25', 'mir'],
     ['mir', '29', 'mir'],
-    ['dinners', '30', 'dinners'],
+    ['dinnerclub', '30', 'dinnerclub'],
     ['jcb', '31', 'jcb'],
-    ['amex', '34', 'amex'],
+    ['amexpress', '34', 'amexpress'],
     ['jcb', '35', 'jcb'],
-    ['dinners', '36', 'dinners'],
-    ['amex', '37', 'amex'],
-    ['dinners', '38', 'dinners'],
+    ['dinnerclub', '36', 'dinnerclub'],
+    ['amexpress', '37', 'amexpress'],
+    ['dinnerclub', '38', 'dinnerclub'],
     ['visa', '40', 'visa'],
     ['visa', '45', 'visa'],
     ['visa', '49', 'visa'],
@@ -54,11 +54,11 @@ describe('Testing of class Validator', () => {
     ['maestro', '58', 'maestro'],
     ['maestro', '63', 'maestro'],
     ['maestro', '67', 'maestro'],
-    ['master', '51', 'master'],
-    ['master', '52', 'master'],
-    ['master', '53', 'master'],
-    ['master', '54', 'master'],
-    ['master', '55', 'master'],
+    ['mastercard', '51', 'mastercard'],
+    ['mastercard', '52', 'mastercard'],
+    ['mastercard', '53', 'mastercard'],
+    ['mastercard', '54', 'mastercard'],
+    ['mastercard', '55', 'mastercard'],
     ['discover', '60', 'discover'],
     ['unionpay', '62', 'unionpay'],
     ['uec', '70', 'uec'],
