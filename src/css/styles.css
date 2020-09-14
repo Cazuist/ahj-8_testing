@@ -5,6 +5,8 @@
 
 fieldset {
   padding: 30px;
+  display: flex;
+  flex-direction: column;
 
   background-color: bisque;
   border-radius: 30px;

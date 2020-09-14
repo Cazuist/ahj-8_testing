@@ -6,33 +6,42 @@ export default class ValidatorWidget {
     this.cardsList = cardsList;
 
     this.bindToDOM();
-    this.addListeners();
 
     this.input = this.container.querySelector(this.getInputSelector());
-    this.cards = this.container.querySelectorAll(this.getCardSelector());
+    this.cardsPanel = this.container.querySelector(this.getCardsPanelSelector());
+    this.cards = this.cardsPanel.children;
     this.msgBox = this.container.querySelector(this.getMessageSelector());
+
+    this.cardsMarkup(this.cardsPanel);
+    this.addListeners();
   }
 
-  cardsMarkup() {
+  async cardsMarkup(cont) {
     let html = '';
-    const list = this.cardsList;
+    for (const card of this.cardsList) {
+      const icon = import(`../img/${card.name}-logo.png`);
 
-    for (const card of list) {
-      html += `<img class="card-box blur" src="${card.src}" 
-          data-name="${card.name}"}"></img>`;
+      // eslint-disable-next-line  no-await-in-loop
+      const result = await icon;
+      html += `<img class="card-box blur" src="${result.default}"
+          data-name="${card.name}"></img>`;
     }
 
-    return html;
+    // eslint-disable-next-line  no-param-reassign
+    cont.innerHTML = html;
   }
 
+  // eslint-disable-next-line  class-methods-use-this
   widgetMurkup() {
     return `
+      <h1>Валидатор карт</h1>
       <form class='form-widget' data-widget="card-form-widget">
         <fieldset>
           <legend>Card Validator v.1.0</legend>
 
-          <div class="cards-row">${this.cardsMarkup()}</div>
-          
+          <div class="cards-row">
+          </div>
+
           <div class="control-row">
             <label for="number-input">Enter your card number:</label>
             <input id="number-input" class="number-field" type="text">
@@ -66,13 +75,13 @@ export default class ValidatorWidget {
   }
 
   // eslint-disable-next-line  class-methods-use-this
-  getCardSelector() {
-    return '.card-box';
+  getMessageSelector() {
+    return '.message-box';
   }
 
   // eslint-disable-next-line  class-methods-use-this
-  getMessageSelector() {
-    return '.message-box';
+  getCardsPanelSelector() {
+    return '.cards-row';
   }
 
   onSubmit(event) {

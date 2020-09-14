@@ -40,9 +40,9 @@ module.exports = {
         use: [
           {
             loader: 'url-loader',
-            options: {
-              limit: 12000,
-            },
+            options:{
+	      limit: 10000,
+            }
           },
         ],
       },
