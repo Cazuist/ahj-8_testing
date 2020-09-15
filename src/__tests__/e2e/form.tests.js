@@ -3,7 +3,7 @@ const { fork } = require('child_process');
 
 jest.setTimeout(30000);
 
-describe('Card form validation', async () => {
+describe('Card form validation', () => {
   let browser = null;
   let page = null;
   let server = null;
