@@ -19,7 +19,7 @@ build_script:
   - yarn build
 
 test_script:
-  - yarn lint && yarn test  && yarn jsdom
+  - yarn lint && yarn test  && yarn jsdom && yarn e2e
 
 deploy_script:
   - git config --global credential.helper store
